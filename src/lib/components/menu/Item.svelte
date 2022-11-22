@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { tooltip } from '../../actions';
-	import HoverBackground from '../HoverBackground.svelte';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 	import { MENU_CONTEXT_ID } from './Menu.svelte';
@@ -25,7 +24,8 @@
 
 	$: active = $activeItem === key;
 
-	let defaultClass = 'transition-all duration-300';
+	let defaultClass =
+		'transition-all duration-300 hover:bg-light-icon-background-hover hover:dark:bg-dark-icon-background-hover hover:w-full';
 	$: finalClass = twMerge(defaultClass, $$props.class);
 </script>
 
@@ -60,6 +60,5 @@
 		</span>
 
 		<slot name="extra" />
-		<HoverBackground class="rounded-md" />
 	</a>
 </div>
